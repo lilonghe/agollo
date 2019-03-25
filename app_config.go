@@ -225,7 +225,8 @@ func syncServerIpListSuccessCallBack(responseBody []byte)(o interface{},err erro
 func syncServerIpList(newAppConfig *AppConfig) error{
 	appConfig:=GetAppConfig(newAppConfig)
 	if appConfig==nil{
-		panic("can not find apollo config!please confirm!")
+		return nil
+		// panic("can not find apollo config!please confirm!")
 	}
 
 	_,err:=request(getServicesConfigUrl(appConfig),&ConnectConfig{
